@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
     end
   end
+
   def delete
     if params[:action] == 'delete' && (User.exists?(params[:id])) == true
       user = User.find(params[:id])
@@ -42,15 +43,15 @@ class UsersController < ApplicationController
       new_user = User.create(first_name: params[:first_name], last_name: params[:last_name], age: params[:age])
       render text: "(#{new_user.id}) #{new_user.first_name} #{new_user.last_name} added to database."
     else
-      render text: "errrr"
+      render text: "Unknown Error", status: 500
     end
   end
 
   def display_users(passed_value)
       string_users = passed_value.map do |user|
-        "(#{user.id}) #{user.first_name} #{user.last_name}, #{user.age} y/o\n"
+        "(#{user.id}) #{user.first_name} #{user.last_name}, #{user.age} y/o"
         end
-      render text: string_users.join('</p><p>')
+      render text: string_users.join('<p></p>')
   end
 
 
