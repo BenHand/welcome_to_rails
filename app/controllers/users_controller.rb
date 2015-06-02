@@ -1,12 +1,26 @@
 class UsersController < ApplicationController
 
   def index
-    all_users = User.all
-    string_users = all_users.map do |user|
-       "#{user.first_name} #{user.last_name}, #{user.age} y/o\n"
+    if params.length <=2
+      all_users = User.all
+      string_users = all_users.map do |user|
+        "(#{user.id}) #{user.first_name} #{user.last_name}, #{user.age} y/o\n"
+        end
+      render text: string_users.join('</p><p>')
+
+    else
+      specific_users = User.where("first_name LIKE (?)", "#{params[:first_name]}%")
+
+      if specific_users.length < 1
+        render text: "User(s) Not Found", status: 404
+      else
+        string_users = specific_users.map do |user|
+          "(#{user.id}) #{user.first_name} #{user.last_name}, #{user.age} y/o\n"
+          end
+        render text: string_users.join('</p><p>')
+      end
     end
-    join = "_" * 20
-    render text: "#{join}#{string_users.join(join)}"
+
   end
 
   def show
@@ -17,5 +31,6 @@ class UsersController < ApplicationController
       render text: "User Not Found", status: 404
     end
   end
+
 
 end
