@@ -1,5 +1,5 @@
-# Welcome to Rails project
-
+# Welcome_to_Rails project
+  * This is my first project using Rails.
   * Using URLs you are able to add/edit/delete/view the contents of a db.
   * default database contains a User table, with first_name, last_name, and age.
 
