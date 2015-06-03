@@ -17,12 +17,18 @@
 
 ## The following will allow you to access your local server and the data saved on the database.
 ```
-  * http://localhost:3000/users HTTP/1.1           will return a list of all the users stored in the db.
-  * http://localhost:3000/users/1 HTTP/1.1         will return the user with id = 1.
-  * http://localhost:3000/users/9999999 HTTP/1.1   will return an error unless there is a user with requested id.
-  * http://localhost:3000/users?first_name=s       will return users with names starting with 's'.
-  * http://localhost:3000/users?limit=10&offset=10 will return 10 users starting with the 10th.
-  * http://localhost:3000/users/1/delete           will delete the user with id = 1.
+  * http://localhost:3000/users HTTP/1.1
+      will return a list of all the users stored in the db.
+  * http://localhost:3000/users/1 HTTP/1.1
+      will return the user with id = 1.
+  * http://localhost:3000/users/9999999 HTTP/1.1
+      will return an error unless there is a user with requested id.
+  * http://localhost:3000/users?first_name=s
+      will return users with names starting with 's'.
+  * http://localhost:3000/users?limit=10&offset=10
+      will return 10 users starting with the 10th.
+  * http://localhost:3000/users/1/delete
+      will delete the user with id = 1.
   * http://localhost:3000/users/create?first_name=Justin&last_name=Herrick&age=99
       will create a new user with specified parameters and display said user.
 ```
