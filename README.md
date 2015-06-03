@@ -23,6 +23,8 @@
   * http://localhost:3000/users?first_name=s       will return users with names starting with 's'.
   * http://localhost:3000/users?limit=10&offset=10 will return 10 users starting with the 10th.
   * http://localhost:3000/users/1/delete           will delete the user with id = 1.
+  * http://localhost:3000/users/create?first_name=Justin&last_name=Herrick&age=99
+      will create a new user with specified parameters and display said user.
 ```
 
 
